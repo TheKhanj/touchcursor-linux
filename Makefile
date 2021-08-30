@@ -45,9 +45,9 @@ clean:
 	-rm -f $(OUTPATH)/$(TARGET)
 
 install:
-	@echo "# Stopping the service"
-	-systemctl --user stop $(SERVICE)
-	@echo ""
+	# @echo "# Stopping the service"
+	# -systemctl --user stop $(SERVICE)
+	# @echo ""
 	
 	@echo "# Copying application to $(INSTALLPATH)"
 	@echo "# This action requires sudo."
@@ -55,20 +55,20 @@ install:
 	sudo chmod u+s $(INSTALLPATH)/$(TARGET)
 	@echo ""
 
-	@echo "# Copying default configuration file to $(CONFIGPATH)/$(CONFIGFILE)"
-	mkdir -p $(CONFIGPATH)
-	cp -n $(CONFIGFILE) $(CONFIGPATH)
-	@echo ""
-	
-	@echo "# Copying service file to $(SERVICEPATH)"
-	mkdir -p $(SERVICEPATH)
-	cp -f $(SERVICEFILE) $(SERVICEPATH)
-	@echo ""
-	
-	@echo "# Enabling and starting the service"
-	systemctl --user daemon-reload
-	systemctl --user enable $(SERVICE)
-	systemctl --user start $(SERVICE)
+	# @echo "# Copying default configuration file to $(CONFIGPATH)/$(CONFIGFILE)"
+	# mkdir -p $(CONFIGPATH)
+	# cp -n $(CONFIGFILE) $(CONFIGPATH)
+	# @echo ""
+	# 
+	# @echo "# Copying service file to $(SERVICEPATH)"
+	# mkdir -p $(SERVICEPATH)
+	# cp -f $(SERVICEFILE) $(SERVICEPATH)
+	# @echo ""
+	# 
+	# @echo "# Enabling and starting the service"
+	# systemctl --user daemon-reload
+	# systemctl --user enable $(SERVICE)
+	# systemctl --user start $(SERVICE)
 
 uninstall:
 	@echo "# Stopping and disabling the service"
